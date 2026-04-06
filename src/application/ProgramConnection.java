@@ -19,6 +19,7 @@ public static void main(String[] args) {
 	try {
 		conn=DB.getConnection();
 		
+		/*
 		st=conn.prepareStatement(
 				"INSERT INTO seller"
 				+"(Name, Email, BirthDate, BaseSalary, DepartmentId)"
@@ -31,6 +32,9 @@ public static void main(String[] args) {
 		st.setDate(3, new java.sql.Date(sdf.parse("28/02/1979").getTime()));
 		st.setDouble(4, 100000.0);
 		st.setInt(5, 1);
+		*/
+		st=conn.prepareStatement("insert into department (Name) values ('D1'),('D2')",
+				Statement.RETURN_GENERATED_KEYS);
 		
 		int  rowsAffected= st.executeUpdate();
 		
@@ -42,7 +46,7 @@ public static void main(String[] args) {
 			}
 		}
 		else {
-			System.out.println("no row affected1");
+			System.out.println("No row affected!");
 		}
 		
 		System.out.println("Done! Rows affected: "+rowsAffected);		
@@ -50,9 +54,7 @@ public static void main(String[] args) {
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
-	catch(ParseException e) {
-		e.printStackTrace();
-	}
+	
 	finally {
 		DB.closeStatement(st);
 		DB.closeConnection();
