@@ -28,6 +28,11 @@ public class ProgramDepartmen {
 		for(Seller objSeller : list) {
 			System.out.println(objSeller);
 		}
+		System.out.println("====Test 3: seller findAll====");
+		list= sellerDao.findAll();
+		for(Seller objSeller : list) {
+			System.out.println(objSeller);
+		}
 	}
 
 }
