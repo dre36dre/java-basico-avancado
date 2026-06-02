@@ -42,7 +42,7 @@ public class ProgramDepartmen {
 
 		System.out.println("====Test 5: seller insert====");
 		seller=sellerDao.findById(1);
-		seller.setName("Martha Waine");
+		seller.setEmail("lwaine@gmail.com");
 		sellerDao.update(seller);
 		System.out.println("Update completed");
 
